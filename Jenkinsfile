@@ -3,6 +3,12 @@ pipeline {
          tools {
                 nodejs 'NodeJS'
          }
+         environment {
+                   SONAR_PROJECT_KEY= complete ECS_FARAGATE_PIPELIENE
+                   SONAR_SCANNER_HOME= tool 'SonarQubeScanner'
+
+
+         }
          stages  {
                   stage('gitHub'){
                           steps {
@@ -16,7 +22,25 @@ pipeline {
                        }
      
                 }
+                stage('SonarQube  analysis'){
+                        steps { 
+                              withCredentials([string(credentialsId: 'ECS_FARGATE_CICD', variable: 'Sonar_token')]) {
+    // some block                      withSonarQubeEnv('SonarQube') {
+    // some block                             sh """
+                                                ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+						-Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+						-Dsonar.sources=. \
+						-Dsonar.host.url=http://sonarqube-dind:9000 \
+						-Dsonar.login=${Sonar_Token}
+						"""
+
+                                        }
+                                }
+                       
+                       } 
+               
+               } 
            
-         } 
+        } 
 
 }
