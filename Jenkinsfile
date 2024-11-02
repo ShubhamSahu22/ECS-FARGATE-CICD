@@ -5,7 +5,7 @@ pipeline {
          }
          environment {
                    SONAR_PROJECT_KEY= complete ECS_FARAGATE_PIPELIENE
-                   SONAR_SCANNER_HOME= tool 'SonarQubeScanner
+                   SONAR_SCANNER_HOME= tool 'SonarQubeScanner'
          }
          stages  {
                   stage('gitHub'){
