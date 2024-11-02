@@ -25,8 +25,8 @@ pipeline {
                 stage('SonarQube  analysis'){
                         steps { 
                               withCredentials([string(credentialsId: 'ECS_FARGATE_CICD', variable: 'Sonar_token')]) {
-    // some block                      withSonarQubeEnv('SonarQube') {
-    // some block                             sh """
+                                                withSonarQubeEnv('SonarQube') {
+                                                sh """
                                                 ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
 						-Dsonar.projectKey=${SONAR_PROJECT_KEY} \
 						-Dsonar.sources=. \
