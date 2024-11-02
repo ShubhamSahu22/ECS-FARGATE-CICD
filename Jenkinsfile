@@ -5,9 +5,7 @@ pipeline {
          }
          environment {
                    SONAR_PROJECT_KEY= complete ECS_FARAGATE_PIPELIENE
-                   SONAR_SCANNER_HOME= tool 'SonarQubeScanner'
-
-
+                   SONAR_SCANNER_HOME= tool 'SonarQubeScanner
          }
          stages  {
                   stage('gitHub'){
@@ -30,7 +28,7 @@ pipeline {
                                                 ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                                                  -Dsonar.projectKey='${SONAR_PROJECT_KEY}' \
                                                  -Dsonar.sources='.' \
-                                                 -Dsonar.host.url='http://3.91.249.99:9000' \
+                                                 -Dsonar.host.url='http://sonarqube:9000' \
                                                  -Dsonar.login='${SONAR_TOKEN}'
                                                  """
 
@@ -42,6 +40,6 @@ pipeline {
                
                } 
            
-        } 
+         } 
 
 }
