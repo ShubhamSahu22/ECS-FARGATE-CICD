@@ -1,9 +1,8 @@
 pipeline {
    
                stages{
-                        stage('Github') {
+                        stage('github') {
                                steps {
-                        
                                   git branch: 'main', credentialsId: 'jen-git-dind', url: 'https://github.com/ShubhamSahu22/ECS-FARGATE-CICD.git'
                                }
                      }
