@@ -9,7 +9,7 @@ pipeline {
                                   git branch: 'main', credentialsId: 'jen-git-dind', url: 'https://github.com/ShubhamSahu22/ECS-FARGATE-CICD.git'
                                }
                      }
-                      stage('unit Test'){
+                      stage('Unit Test'){
                          steps {
                                  sh 'npm test'
                                  sh 'npm install'
