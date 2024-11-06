@@ -9,13 +9,13 @@ pipeline {
                stages {
                    stage('github'){
                      steps {
-                           git branch: 'main', credentialsId: 'git-docker-node ', url: 'https://github.com/ShubhamSahu22/NodeApp.git'
+                           git branch: 'main', credentialsId: 'git-docker-nodejs', url: 'https://github.com/ShubhamSahu22/ECS-FARGATE-CICD.git'
                       } 
 
                   }
                    stage('install node dependency') {
                          steps {
-                               sh 'npm install'
+                               sh sh 'npm install'
                           }                
                            
                        }    
