@@ -19,14 +19,14 @@ pipeline {
                  stage {
                       steps('install node dependency') {
 
-                       steps
+                       steps {
                             sh 'npm install'    
                        
                          }     
               
                    }
                     stage('test case') {
-                           steps
+                              steps {
                                  sh 'npm test'
 
                         }  
