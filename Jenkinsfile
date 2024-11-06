@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS' // Ensure NodeJS is configured in Jenkins
+        nodejs 'NodeJS' 
     }
      environment { 
               SONAR_PROJECT_KEY = 'ECS-Pipeline'
