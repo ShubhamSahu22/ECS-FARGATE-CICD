@@ -2,10 +2,10 @@ pipeline {
 
 
          agent any
-         tools { 
+         tools {
              nodejs 'NodeJS'
-}
-      
+         }
+             
 
                  stages {
 
@@ -23,9 +23,9 @@ pipeline {
                        
 
                     }
-                   stege('Test case') { 
+                     stage('Test case') { 
                       steps { 
-                              sh 'npm test'
+                            sh 'npm test'        
                        }
 
 
