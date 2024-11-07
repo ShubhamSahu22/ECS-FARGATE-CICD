@@ -27,7 +27,7 @@ pipeline {
                         sh '''$SONAR_SCANNER_HOME/bin/sonar-scanner \
                             -Dsonar.projectKey=ECS_Pipeline \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=http://http://54.204.213.9:9000/\
+                            -Dsonar.host.url=http://http://54.204.213.9:9000/ \
                             -Dsonar.login=$SONAR_TOKEN'''
                     }
                 }
