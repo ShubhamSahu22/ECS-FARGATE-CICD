@@ -13,16 +13,12 @@ pipeline {
                 git branch: 'main', credentialsId: 'git-docker-nodejs', url: 'https://github.com/ShubhamSahu22/ECS-FARGATE-CICD.git'
             }
         }
-        stage('Node dependency') {
+        stage('Unit Test') {
             steps {
                 sh 'npm install'
-            }
+            }   sh 'npm test'
         }
-        stage('Test case') {
-            steps {
-                sh 'npm test'
-            }
-        }
+        
         stage('SonarQube Analysis') {
             steps {
                 withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN')]) {
