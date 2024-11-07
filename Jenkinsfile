@@ -4,7 +4,7 @@ pipeline {
         nodejs 'NodeJS'
     }
     environment {
-        SONAR_PROJECT_KEY = 'ECS_Pipeline'
+        SONAR_PROJECT_KEY = 'ECS-Pipeline'
         SONAR_SCANNER_HOME = 'SonarQubeScanner' // Ensure that this is configured correctly in Jenkins Global Tool Configuration
     }
     stages {
