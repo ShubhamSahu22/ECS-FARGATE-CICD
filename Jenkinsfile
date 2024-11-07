@@ -30,7 +30,7 @@ pipeline {
                }
                  stage('SonarQube Analysis') {
                        steps { 
-                            withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN { 
+                            withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN' { 
 
                                              withSonarQubeEnv('SonarQube') {
                                               sh '''SonarQubeScanner/bin/sonar-scanner \
