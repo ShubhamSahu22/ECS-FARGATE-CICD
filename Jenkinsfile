@@ -1,6 +1,4 @@
 pipeline {
-
-
          agent any
          tools {
              nodejs 'NodeJS'
@@ -29,11 +27,9 @@ pipeline {
                       steps { 
                             sh 'npm test'        
                        }
-
-
                }
-               stage(SonarQube Analysis) {
-                     steps { 
+                 stage('SonarQube Analysis') {
+                       steps { 
                             withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN')]) {
     
                                            withSonarQubeEnv('SonarQube') { 
