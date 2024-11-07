@@ -30,25 +30,19 @@ pipeline {
                }
                  stage('SonarQube Analysis') {
                        steps { 
-                            withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN')]) {
-    
-                                           withSonarQubeEnv('SonarQube') { 
+                            withCredentials([string(credentialsId: 'ECS_FARGATE-Token', variable: 'SONAR_TOKEN { 
 
-                                                   sh """
-                                                   ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                                                   -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                                                   -Dsonar.sources=. \
-                                                   -Dsonar.host.url= http://sonarqube-dind:9000 \
-                                                   -Dsonar.login=${SONAR_TOKEN} 
-                                                    """
-
-
-
+                                             withSonarQubeEnv('SonarQube') {
+                                              sh '''SonarQubeScanner/bin/sonar-scanner \
+                                                 -Dsonar.projectKey=ECS_Pipeline \
+                                                 -Dsonar.sources=. \
+                                                -Dsonar.host.url=http://sonarqube-dind:9000 \
+                                                -Dsonar.login=$SONAR_TOKEN'''
+                                     
+                                            }
 
     
-                                       }     
-                        
-
+                                       }                             
 
 
                            }                             
